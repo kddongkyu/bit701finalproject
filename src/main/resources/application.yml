@@ -1,2 +1,22 @@
 server:
   port: 9002
+
+#mysql ??
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-g66m6-kr.vpc-pub-cdb.ntruss.com:3306/bit701?serverTimezone=Asia/Seoul
+    username: study
+    password: bit123!@#
+  servlet:
+    multipart:
+      max-file-size: 20MB
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#mybatis ??
+mybatis:
+  type-aliases-package: data.dto
+  mapper-locations:
+    - /mapper/**/*.xml
