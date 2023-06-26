@@ -1,7 +1,16 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 function Menu(props) {
+
+    const navi = useNavigate();
+
+    const logoutEvent =()=>{
+        sessionStorage.loginok = 'no';
+        sessionStorage.myid = '';
+        sessionStorage.myname = '';
+    }
+
     return (
         <ul className={'menu'}>
             <li>
@@ -16,8 +25,10 @@ function Menu(props) {
             <li>
                 <NavLink to={"/board/list"}>게시판</NavLink>
             </li>
-            <li>
-                <NavLink to={"/login"}>로그인</NavLink>
+            <li style={{width:'200px'}}>
+                {
+                    sessionStorage.loginok==='yes'?<NavLink to={"/login"} onClick={logoutEvent}>로그아웃 {sessionStorage.myname}({sessionStorage.myid})님</NavLink>:<NavLink to={"/login"}>로그인</NavLink>
+                }
             </li>
         </ul>
     );

@@ -5,11 +5,13 @@ import {BoardForm, BoardList} from "./board";
 import {Routes, Route} from 'react-router-dom';
 import {Alert} from "react-bootstrap";
 import './App.css'
+import BoardDetailPage from "./board/BoardDetailPage";
 function RouteMain(props) {
     return (
         <div>
             <Menu/>
             <br style={{clear:"both"}}/>
+            <br/><br/>
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
                 <Route path={"/login"} element={<LoginForm/>}/>
@@ -18,11 +20,12 @@ function RouteMain(props) {
                     <Route path={'form'} element={<MemberForm/>}/>
                     <Route path={'list'} element={<MemberList/>}/>
                 </Route>
-
                 <Route path={"/board"}>
                     <Route path={'form'} element={<BoardForm/>}/>
+                    <Route path={'form/:num'} element={<BoardForm/>}/>
                     <Route path={'list'} element={<BoardList/>}/>
                     <Route path={'list/:currentPage'} element={<BoardList/>}/>
+                    <Route path={"detail/:num/:currentPage"} element={<BoardDetailPage/>}/>
                 </Route>
                 <Route path={"*"} element={
                     <div>

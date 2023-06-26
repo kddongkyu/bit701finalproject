@@ -17,11 +17,3 @@ mybatis:
   type-aliases-package: data.dto
   mapper-locations:
     - /mapper/**/*.xml
-
-#aws
-cloud:
-  aws:
-    stack:
-      auto: false
-    region:
-      static: ap-northeast-2
